@@ -16,6 +16,10 @@ const { ProtectByAuth } = require("./controller/Auth");
 
 App.get('/favicon.ico', (req, res) => res.status(204));
 App.use(express.static(path.resolve(__dirname,'public')))
+App.use('*', (req, res, next) => {
+  res.sendFile(path.resolve(__dirname,'public/index.html'))
+})
+
 App.use(
   fileUpload({
     useTempFiles: true,
