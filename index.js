@@ -6,7 +6,6 @@ const mongoose = require("mongoose");
 const fileUpload = require("express-fileupload");
 const TaskRoute = require("./Routers/Task");
 const ProjectRoute = require("./Routers/Project");
-const TaskAssignmentRoute = require("./Routers/TaskAssignment");
 const TeamRoute = require("./Routers/Team");
 const ChatRoute = require("./Routers/Chat");
 const AuthRoute = require("./Routers/Auth");
@@ -14,11 +13,11 @@ const FileRoute = require("./Routers/File");
 const UserRoute = require("./Routers/User");
 const { ProtectByAuth } = require("./controller/Auth");
 
-App.get('/favicon.ico', (req, res) => res.status(204));
-App.use(express.static(path.resolve(__dirname,'public')))
-App.use('*', (req, res, next) => {
-  res.sendFile(path.resolve(__dirname,'public/index.html'))
-})
+App.get("/favicon.ico", (req, res) => res.status(204));
+App.use(express.static(path.resolve(__dirname, "public")));
+App.use("*", (req, res, next) => {
+  res.sendFile(path.resolve(__dirname, "public/index.html"));
+});
 
 App.use(
   fileUpload({
@@ -28,7 +27,6 @@ App.use(
 );
 App.use(cors());
 App.use(express.json());
-App.use("/api/TaskAssignment", ProtectByAuth, TaskAssignmentRoute);
 App.use("/api/project", ProtectByAuth, ProjectRoute);
 App.use("/api/UploadFile", FileRoute);
 App.use("/api/Chat", ProtectByAuth, ChatRoute);
