@@ -3,6 +3,7 @@ const express = require("express");
 const App = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
+const path = require("path");
 const fileUpload = require("express-fileupload");
 const TaskRoute = require("./Routers/Task");
 const ProjectRoute = require("./Routers/Project");
@@ -11,6 +12,7 @@ const ChatRoute = require("./Routers/Chat");
 const AuthRoute = require("./Routers/Auth");
 const FileRoute = require("./Routers/File");
 const UserRoute = require("./Routers/User");
+
 const { ProtectByAuth } = require("./controller/Auth");
 
 App.get("/favicon.ico", (req, res) => res.status(204));
