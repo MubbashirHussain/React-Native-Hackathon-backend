@@ -14,6 +14,8 @@ const FileRoute = require("./Routers/File");
 const UserRoute = require("./Routers/User");
 const { ProtectByAuth } = require("./controller/Auth");
 
+App.get('/favicon.ico', (req, res) => res.status(204));
+
 App.use(
   fileUpload({
     useTempFiles: true,
